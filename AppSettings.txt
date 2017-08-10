@@ -1,0 +1,13 @@
+client_id 93dcd535-5b11-4e7b-9d36-6a3692e53b38
+secret PvEmAlNijknOr/0QySAhzzpPRstRcWjZO1xWUWJkxeE=
+tenant_id 72f988bf-86f1-41af-91ab-2d7cd011db47
+max_vm_count_in_thread 10
+webhook_url https://s7events.azure-automation.net/webhooks?token=Du3VKToNbU0xg9021zOy%2fQ%2fdX1GiEiMMLTQrP4Jeyxs%3d
+token uu2q3rjf98eru9n3q4ofju934qojfnewijq3ioijef=
+jobs_rg GahpDev
+job_collection GahpDevJc
+job_collection_sku Standard
+job_frequency_type Minute
+job_interval 7
+ad_group_name GahpVMSSs
+key_vault_setup_script_url https://raw.githubusercontent.com/azmigproject/HTCondor/master/downloadsecret.sh

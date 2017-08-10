@@ -1,0 +1,43 @@
+AZURE_VM_LIST 1003 C:\Users\DELL-PC\Desktop\TIFFR\SourceCode\20170420\AzureGAHP\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa
+AZURE_VM_LIST 1003 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa HTCondor
+AZURE_VM_LIST 1003 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa tag=IT
+AZURE_VM_CREATE 1001 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa name=HTCondor location=southcentralus size=Basic_A0 image=linux-ubuntu-latest adminUsername=adminuser key=C:\AzureGAHP\id_rsa.pub tag=IT customdata=C:\\CustomData.txt
+AZURE_VM_CREATE 1001 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa name=HTCondor location=southcentralus size=Basic_A0 image=linux-ubuntu-latest adminUsername=adminuser key=Adminuser@123 tag=IT
+AZURE_VM_CREATE 1001 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa name=HTCondor location=southcentralus size=Basic_A0 image=windows-server-latest adminUsername=adminuser key=Adminuser@123 tag=IT
+AZURE_VM_CREATE 1001 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa name=HTCondor location=southcentralus size=Standard_A1 image=windows-server-latest adminUsername=adminuser key=Adminuser@123 tag=IT customdata=C:\AzureGAHP\CustomData.txt datadisks=10,20
+AZURE_VM_CREATE 1001 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa name=HTCondorDD location=southcentralus size=Standard_A1 image=linux-ubuntu-latest adminUsername=adminuser key=C:\AzureGAHP\id_rsa.pub tag=IT customdata=C:\AzureGAHP\CustomData.txt datadisks=10,20
+AZURE_VM_CREATE 1001 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa name=HTCondorImg44 location=southcentralus size=Basic_A0 ostype=linux image=https://htcondorresgrpdisks190.blob.core.windows.net/vhds/htcondorvm20170414163044.vhd adminUsername=adminuser key=Adminuser@123 tag=IT
+AZURE_VM_DELETE 1002 C:\AzureGAHP\AppSettings.txt d2c62e9d-d204-459d-b164-5ef80e72bffa abcd
+AZURE_VM_DELETE 1002 C:\AzureGAHP\AppSettings.txt <subscription_id>
+AZURE_PING 1004 C:\AzureGAHP\AppSettings.txt <subscription_id>
+
+
+
+Generation rules
+If admin user name is not specified the string 'superuer' is used for now
+If key is not specified, the string Super1234!@#$ is used for now
+name is interpreted as group name
+vmName =groupName+'vm'
+if no vnet specified, vetName = name + 'vnet'
+subnetName =  name + 'subnet' 
+osDiskName = name + 'osdisk' 
+storageAccountName = name + 'sa' 
+ipConfigName = name + 'ipconfig' 
+nicName = name + 'nic' 
+
+Completed (First version): 
+All 4 commands 
+CREATE: publicIPAddress, dataDisks, customData, tag - not processed yet
+Latest additions in Jamie's mail
+
+Changes (Completed)
+image identifing strings is used instead of image location - to change later
+Name: key instead of adminSShKey, Value: password instead of ssh key
+Use std-err
+AZURE_VM_LIST needs resourceGroup as a parameter - all resource groups in a subscription seems too many! - can be changed later
+
+Clarifications
+ok to interpret name as group name to be in symmtery with delete?
+What should be tagged - resource group or VM?
+Can admin user name and key be made mandatory 
+The value syntax of the argument dataDisks needs clarification
